@@ -5,6 +5,10 @@ VisualStudioVersion = 17.14.36915.13 d17.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "edson268-landing-page-api", "edson268-landing-page-api\edson268-landing-page-api.csproj", "{0237ECD6-419F-4C42-A5EF-EF3E8D6EE644}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "edson268-landing-page-api.Core", "edson268-landing-page-api.Core\edson268-landing-page-api.Core.csproj", "{13628778-76AF-4938-953B-7765FD1A8BE2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "edson268-landing-page-api.Data", "edson268-landing-page-api.Data\edson268-landing-page-api.Data.csproj", "{E1A25389-24F1-4060-97CA-32FC8B63371E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{0237ECD6-419F-4C42-A5EF-EF3E8D6EE644}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0237ECD6-419F-4C42-A5EF-EF3E8D6EE644}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0237ECD6-419F-4C42-A5EF-EF3E8D6EE644}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13628778-76AF-4938-953B-7765FD1A8BE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13628778-76AF-4938-953B-7765FD1A8BE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13628778-76AF-4938-953B-7765FD1A8BE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13628778-76AF-4938-953B-7765FD1A8BE2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E1A25389-24F1-4060-97CA-32FC8B63371E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1A25389-24F1-4060-97CA-32FC8B63371E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1A25389-24F1-4060-97CA-32FC8B63371E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1A25389-24F1-4060-97CA-32FC8B63371E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
