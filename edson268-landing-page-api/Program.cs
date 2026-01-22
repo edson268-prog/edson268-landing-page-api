@@ -1,3 +1,9 @@
+using Asp.Versioning;
+using edson268_landing_page_api.Certificates;
+using edson268_landing_page_api.Common;
+using edson268_landing_page_api.Data;
+using edson268_landing_page_api.Data.Extensions;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -16,7 +22,29 @@ builder.Services.AddCors(options =>
     });
 });
 
+builder.Services.AddInfrastructure(builder.Configuration);
+
+builder.Services.AddApiVersioning(options =>
+{
+    options.DefaultApiVersion = new ApiVersion(1, 0);
+    options.AssumeDefaultVersionWhenUnspecified = true;
+});
+
 var app = builder.Build();
+
+SQLitePCL.Batteries_V2.Init();
+using (var scope = app.Services.CreateScope())
+{
+    var dbContext = scope.ServiceProvider.GetRequiredService<LandingPageDbContext>();
+    await dbContext.Database.EnsureCreatedAsync();
+}
+
+var versionSet = app.NewApiVersionSet()
+    .HasApiVersion(new Asp.Versioning.ApiVersion(1))
+    .ReportApiVersions()
+    .Build();
+
+app.Map<CertificatesEndpoints>(versionSet);
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -26,28 +54,4 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
-var summaries = new[]
-{
-    "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-};
-
-app.MapGet("/weatherforecast", () =>
-{
-    var forecast = Enumerable.Range(1, 5).Select(index =>
-        new WeatherForecast
-        (
-            DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-            Random.Shared.Next(-20, 55),
-            summaries[Random.Shared.Next(summaries.Length)]
-        ))
-        .ToArray();
-    return forecast;
-});
-
 app.Run();
-
-internal record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
-{
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
-}

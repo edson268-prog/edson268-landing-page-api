@@ -8,8 +8,7 @@ namespace edson268_landing_page_api.Data
     {
         public DbSet<Certificate> Certificates { get; set; }
 
-        public LandingPageDbContext(DbContextOptions<DbContext> options)
-            : base(options)
+        public LandingPageDbContext(DbContextOptions<LandingPageDbContext> options) : base(options)
         {
         }
 
