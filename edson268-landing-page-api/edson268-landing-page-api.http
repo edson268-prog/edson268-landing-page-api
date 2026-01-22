@@ -1,0 +1,6 @@
+@edson268_landing_page_api_HostAddress = http://localhost:5252
+
+GET {{edson268_landing_page_api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
